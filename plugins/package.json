@@ -1,0 +1,12 @@
+{
+  "name": "node",
+  "engines": {
+    "node": "22.13.0"
+  },
+  "devDependencies": {
+    "@grpc/grpc-js": "^1.12.6",
+    "@grpc/proto-loader": "^0.7.13",
+    "grpc-tools": "^1.13.0",
+    "ts-proto": "^2.6.1"
+  }
+}

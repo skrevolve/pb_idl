@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package time;
+
+import "google/protobuf/timestamp.proto";
+import "protos/google/api/annotations.proto";
+
+service AuthService {
+  rpc Login(LogInRequest) returns (LogInResponse) {
+    option (google.api.http) = {
+      post: "login",
+      body: "*"
+    };
+  }
+  rpc LogOut(LogOutRequest) returns (LogOutResponse) {
+    option (google.api.http) = {
+      post: "logout",
+      body: "*"
+    };
+  }
+}
+
+message BaseResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message LogInRequest {
+  string id = 1;
+  string pw = 2;
+  google.protobuf.Timestamp log_in_time = 3;
+}
+
+message LogInResponse {
+  BaseResponse base = 1;
+}
+
+message LogOutRequest {
+  google.protobuf.Timestamp log_out_time = 1;
+}
+
+message LogOutResponse {
+  BaseResponse base = 1;
+}
